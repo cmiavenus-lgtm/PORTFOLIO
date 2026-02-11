@@ -1,0 +1,631 @@
+html {
+    scroll-behavior: smooth; /* Ito ang nagpapakinis ng scroll effect */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* Retro Grainy Background */
+    background: url('images/bg.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #f1f1f1; /* Light Text para mabasa sa dark background */
+    min-height: 100vh;
+}
+
+nav {
+    background: rgba(10, 25, 47, 0.95); /* Solid Dark Blue para professional */
+    border-bottom: 1px solid #1e3c72;
+    padding: 15px;
+    text-align: right;
+    position: fixed; /* Didikit sa taas */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Sisiguraduhing nasa ibabaw siya ng ibang elements */
+    box-sizing: border-box;
+}
+
+nav a {
+    color: #f1f1f1; /* Ginawang puti ang text sa nav para makita sa dark blue */
+    margin: 0 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase; /* Ginawang CAPSLOCK ang text */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background para makita ang bg image */
+    color: #f1f1f1; /* Light text color para mabasa sa dark background */
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: nagdadagdag ng border para umangat tignan */
+    scroll-margin-top: 100px; /* Para hindi matakpan ng nav bar pag nag-scroll */
+}
+
+.project {
+    margin-bottom: 20px;
+}
+
+.project img {
+    width: 100%;
+    max-width: 500px; /* Limitahan ang lapad ng image */
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.home-section {
+    text-align: center;
+    padding: 80px 40px;
+    background: rgba(255, 255, 255, 0.85); 
+    color: #333; /* Tinitiyak na madilim pa rin ang text sa home page */
+    max-width: 800px;
+}
+
+.home-bg {
+    /* Background removed to use body's blurred gradient design */
+}
+
+.profile-pic {
+    width: 200px; /* Pinalaki ng konti mula 150px */
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid white;
+    border-radius: 4px; /* Slight curve para parang ID picture */
+    /* margin-bottom removed because of flex layout */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* White highlight/glow */
+    animation: glow 2s infinite alternate; /* Kinang effect */
+}
+
+.btn-download {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #555;
+    text-decoration: none; /* Para hindi mag-underline kapag naka-hover */
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animation para sa kinang/glow */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Flexbox Layout para sa Home Section (Picture sa gilid) */
+.home-container {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Dinagdagan ang space sa pagitan ng picture at text */
+}
+
+/* Responsive Design: Pag mobile, ibabalik sa taas-baba ang ayos */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+
+/* --- Styles for the new About Me section --- */
+
+.about-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-header h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+.profile-card {
+    background: rgba(10, 25, 47, 0.7); /* Darker transparent background */
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.profile-name {
+    font-size: 2em;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 1.1em;
+    color: #c3cfe2; /* Lighter gray for info */
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
+    text-decoration: none;
+}
+
+.timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; /* Space between items */
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0;
+}
+
+.timeline-item {
+    background: rgba(255, 255, 255, 0.05); /* Very transparent white */
+    border-radius: 12px;
+    padding: 20px 30px;
+    transition: all 0.3s ease;
+    border-left: 5px solid #4a90e2; /* Keep an accent */
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px); /* Lift up effect */
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2);
+}
+
+.timeline-year {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #4a90e2; /* Blue accent color */
+    margin-bottom: 8px;
+}
+
+.timeline-school {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #f1f1f1;
+    margin-bottom: 12px;
+}
+
+.timeline-description {
+    color: #c3cfe2; /* Lighter gray */
+    line-height: 1.6;
+    font-size: 0.95em;
+    text-align: justify; /* Justify the paragraph text */
+}
+
+.timeline-description strong {
+    color: #f1f1f1;
+}
+
+/* --- Styles for the new Skills section --- */
+
+#skills {
+    background: none; /* Override the default section background */
+    border: none; /* Override the default section border */
+    padding: 20px 20px 50px 20px; /* Binawasan ang padding sa taas */
+}
+
+.skills-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem; /* Binawasan ang margin sa baba */
+}
+
+.section-title {
+    font-family: 'Lexend', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+.skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.skill-tag {
+    font-family: 'Manrope', sans-serif;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out backwards;
+}
+
+.skill-tag:nth-child(1) { animation-delay: 0.1s; }
+.skill-tag:nth-child(2) { animation-delay: 0.15s; }
+.skill-tag:nth-child(3) { animation-delay: 0.2s; }
+.skill-tag:nth-child(4) { animation-delay: 0.25s; }
+.skill-tag:nth-child(5) { animation-delay: 0.3s; }
+.skill-tag:nth-child(6) { animation-delay: 0.35s; }
+.skill-tag:nth-child(7) { animation-delay: 0.4s; }
+.skill-tag:nth-child(8) { animation-delay: 0.45s; }
+.skill-tag:nth-child(9) { animation-delay: 0.5s; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--tag-color-1), var(--tag-color-2));
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+.skill-tag:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--tag-color-1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 30px var(--tag-color-1);
+}
+
+.skill-tag:hover::before {
+    opacity: 1;
+}
+
+/* Individual colors */
+.skill-tag:nth-child(1) { --tag-color-1: #ff6b6b; --tag-color-2: #ee5a6f; }
+.skill-tag:nth-child(2) { --tag-color-1: #f9ca24; --tag-color-2: #f0932b; }
+.skill-tag:nth-child(3) { --tag-color-1: #6c5ce7; --tag-color-2: #a29bfe; }
+.skill-tag:nth-child(4) { --tag-color-1: #00d2d3; --tag-color-2: #01a3a4; }
+.skill-tag:nth-child(5) { --tag-color-1: #fd79a8; --tag-color-2: #e84393; }
+.skill-tag:nth-child(6) { --tag-color-1: #00b894; --tag-color-2: #00cec9; }
+.skill-tag:nth-child(7) { --tag-color-1: #ff8c00; --tag-color-2: #ff6347; } /* Orange for Dart */
+.skill-tag:nth-child(8) { --tag-color-1: #3ecf8e; --tag-color-2: #38b2ac; } /* Green for Supabase */
+.skill-tag:nth-child(9) { --tag-color-1: #8a94a2; --tag-color-2: #4a5568; } /* Grey for GitHub */
+
+@media (max-width: 640px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .skill-tag {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* --- Styles for the new Projects section --- */
+
+#projects {
+    background: none;
+    border: none;
+    padding: 50px 20px;
+    max-width: 1200px;
+}
+
+.projects-container {
+    width: 100%;
+}
+
+.section-label {
+    display: inline-block;
+    padding: 0.6rem 1.8rem;
+    background: rgba(0, 217, 255, 0.1);
+    border: 2px solid #00d9ff;
+    border-radius: 50px;
+    color: #00d9ff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+#projects .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d9ff 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.2s; }
+.project-card:nth-child(2) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d9ff;
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1.2rem;
+    background: rgba(0, 255, 136, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #000;
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #00d9ff;
+}
+
+.project-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tag {
+    padding: 0.4rem 1rem;
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.project-link {
+    padding: 0.8rem 1.5rem;
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid #00d9ff;
+    border-radius: 10px;
+    color: #00d9ff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-link:hover {
+    background: #00d9ff;
+    color: #1a1a2e;
+    transform: translateY(-2px);
+}
+
+/* --- Styles for the new Contact section --- */
+
+#contact {
+    background: none;
+    border: none;
+    padding: 50px 20px;
+    margin-bottom: 100px;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#contact .section-title {
+    font-family: 'Lexend', sans-serif;
+    background: linear-gradient(135deg, #a78bfa 0%, #00d9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contact-content {
+    display: flex; /* Changed to flex for centering */
+    justify-content: center; /* Center the remaining content */
+    margin-top: 3rem;
+}
+
+.contact-info {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center; /* Center the text inside */
+    max-width: 500px; /* Limit the width */
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #00d9ff;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center; /* Center the social icons */
+    margin-top: 2rem;
+}
+
+.social-icon {
+    padding: 0.8rem 1.5rem; /* Nagdagdag ng padding para maging pahaba */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px; /* Ginawang pill-shape */
+    display: inline-flex; /* Inayos para sa padding */
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #00d9ff;
+    color: #1a1a2e;
+    transform: translateY(-3px) scale(1.05); /* May konting animation pag hover */
+}
+
+@media (max-width: 900px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}

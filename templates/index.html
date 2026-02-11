@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Lexend:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="home-bg">
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+    <!-- HOME SECTION -->
+    <div id="home" style="color: white; padding-top: 100px; margin: 0 auto; max-width: 900px; display: flex; justify-content: center;">
+        
+        <div class="home-container">
+            <!-- Introduction Text sa kaliwa -->
+            <div style="text-align: justify; max-width: 600px;">
+                <div style="border-bottom: 2px solid white; padding-bottom: 30px;">
+                    <h1>Mia Venus Y. Cambe</h1>
+                    <p style="font-size: 1.1rem; line-height: 1.6;">
+                        <b>Bachelor of Science in Information Technology.</b> I am an IT student with a passion for technology, web development, and continuous learning. 
+                        I enjoy building digital solutions, exploring new tools and frameworks, and improving my skills through hands-on projects. 
+                        I am always eager to learn, adapt, and grow in the ever-evolving world of information technology.
+                    </p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <a href="{{ url_for('download_resume') }}" class="btn-download">Download Resume</a>
+                </div>
+            </div>
+            
+            <!-- Picture sa kanan/gilid -->
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}" class="profile-pic" alt="Profile Picture">
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="about-header">
+            <h1>About Me</h1>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2018 – 2022</div>
+                <div class="timeline-school">San Roque National High School</div>
+                <div class="timeline-description">
+                    <strong>Hardworking student</strong> built solid 
+                    foundation in academic and personal growth.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2022 – 2024</div>
+                <div class="timeline-school">Victoria Senior High School</div>
+                <div class="timeline-description">
+                    Studied software fundamentals, gained NCll certification
+                    and experience.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2024 – 2025</div>
+                <div class="timeline-school">Laguna State Polytechnic University</div>
+                <div class="timeline-description">
+                    BS Information Technology, Focused on website
+                    and mobile application development.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2026 – Present</div>
+                <div class="timeline-school">Continued Learning</div>
+                <div class="timeline-description">
+                    Expanding skills in UI/UX, frameworks, and modern technologies.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="skills-container">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+    
+            <div class="skills-cloud">
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">MySQL</div>
+                <div class="skill-tag">Flutter</div>
+                <div class="skill-tag">Figma</div>
+                <div class="skill-tag">Dart</div>
+                <div class="skill-tag">Supabase</div>
+                <div class="skill-tag">GitHub</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="projects-container">
+            <div class="section-header">
+                <h2 class="section-title">My Projects</h2>
+            </div>
+    
+            <div class="projects-grid">
+                <!-- Project 1: Portfolio -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="{{ url_for('static', filename='images/majajayproject.jpg') }}" alt="Portfolio Website">
+                        <div class="project-status">Completed</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            A dynamic, single-page portfolio built from scratch to showcase my skills, educational background, and personal projects in a professional and interactive way.
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Project 2: Database Design -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- EXAMPLE: Palitan ang 'majajayproject.jpg' ng pangalan ng picture mo -->
+                        <img src="{{ url_for('static', filename='images/majayjay.prog.jpg') }}" alt="Database Design">
+                        <div class="project-status">Completed</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            The Majayjay Senior Citizen Management System is designed to replace the manual, paper-based process with a digital and centralized system for managing senior citizen records. It allows faster and more accurate storage, updating, and retrieval of important information such as personal details and payout status, reducing delays and errors. Overall, the system improves service delivery, transparency, and efficiency for both OSCA staff and senior citizens.
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">I'd love to hear from you! Let's connect.</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Contact Form Removed -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Email: cmiavenus@gmail.com</p>
+                    <p>Phone: +63 910 136 007</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mia.venus.y.cambe.2025" target="_blank" class="social-icon">Facebook</a>
+                        <a href="https://www.instagram.com/meyaaamers?igsh=aWoxeWlrdzNrNjBw" target="_blank" class="social-icon">Instagram</a>
+                        <a href="mailto:cmiavenus@gmail.com" class="social-icon">Gmail</a>
+                        <a href="{{ url_for('download_resume') }}" class="social-icon">Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
